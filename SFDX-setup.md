@@ -269,12 +269,71 @@ Access org 00D1I000001UmBpUAK as user mohan.chinnappan.n_devhub@gmail.com with t
 ![Scratch orgs in Dev-Hub](img/sfdx-active-scrath-orgs.png)
 
 
+Using alias names (for instanceurls), examples:
 
+```
+sfdx force:auth:web:login -r https://test.salesforce.com -a FullSandbox
+
+sfdx force:auth:web:login -r https://test.salesforce.com -a DevSandbox
+
+# note: -r is instanceurl
+```
+
+force:org:open help
+
+```
+Usage: sfdx force:org:open [-p <string>] [-r] [-u <string>] [--json] [--loglevel <string>] 
+
+open an org in your browser
+
+Flags:
+ -p, --path PATH                      navigation URL path
+ -u, --targetusername TARGETUSERNAME  username or alais for the target org;
+                                      overrides default target org
+ -r, --urlonly                        display navigation URL, but don’t launch
+                                      browser
+ --json                               format output as json
+ --loglevel LOGLEVEL                  logging level for this command invocation
+                                      (error*,trace,debug,info,warn,fatal)
+
+Opens your default scratch org, or another org that you specify.
+
+To open a specific page, specify the portion of the URL after "yourInstance.salesforce.com/" as --path. 
+For example, specify "--path one/one.app" to open Lightning Experience, or specify "--path /apex/YourPage" to open a Visualforce page.
+
+To generate a URL but not launch your browser, specify --urlonly.
+
+Examples:
+  $ sfdx force:org:open
+  $ sfdx force:org:open -u me@my.org
+  $ sfdx force:org:open -u MyTestOrg1
+  $ sfdx force:org:open -r -p one/one.app
+
+```
+
+Listing orgs you have logged-in:
+
+```
+ 
+
+$ sfdx force:org:list
+=== Orgs
+     ALIAS   USERNAME                             ORG ID              CONNECTED STATUS
+───  ──────  ───────────────────────────────────  ──────────────────  ────────────────
+             uname1@mail.com       00Df40000003eOAEAY  Connected
+             uname2@mail.com       00Df4000000nUtnEAE  Connected  
+(D)  DevHub  uname_devhb@mail.com  00D1I000001UmBpUAK  Connected
+
+
+No active scratch orgs found. Specify --all to see all scratch orgs
+
+
+```
 
 
 ##### References:
 
-1. [Trailhead Setup SFDX](https://trailhead.salesforce.com/en/modules/sfdx_app_dev/units/sfdx_app_dev_setup_dx)
+1. [Trailhead Setup SFDX](https://trailhead.salesforce.com/en/modules/sfdx_app_dev/units/sfdx_app_dev_setup_dx)::
 
 
 
