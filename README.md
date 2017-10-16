@@ -1,3 +1,3 @@
 #### Salesforce DX  Notes
 
-1. [Setup](SFDC-setup.md)
+1. [Setup](SFDX-setup.md)
